@@ -53,7 +53,7 @@
         .img-circle:hover { transform: scale(1.05); }
         .img-circle img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* قسم التبرع لوصلة المياه الجديد */
+        /* قسم التبرع لوصلة المياه */
         .donation-section {
             background: var(--white);
             border-radius: 20px;
@@ -75,6 +75,30 @@
             transition: 0.3s;
         }
         .cash-number { display: block; font-size: 1.5rem; font-weight: bold; color: var(--gold); }
+
+        /* قسم المصحف الإلكتروني الجديد */
+        .quran-link-card {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid #ddd;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+        }
+        .quran-btn {
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
+        }
+        .quran-btn:hover { background: #b08d4a; transform: translateY(-2px); }
 
         /* رسالة تذكير دائمة */
         .reminder-banner {
@@ -122,7 +146,7 @@
             font-size: 1.4rem; line-height: 1.7; box-shadow: 0 3px 10px rgba(0,0,0,0.03);
         }
 
-        /* القرآن */
+        /* القرآن الصوتيات */
         .quran-grid { display: grid; gap: 15px; }
         .audio-item {
             background: #fff; padding: 15px; border-radius: 15px;
@@ -130,7 +154,6 @@
         }
         audio { width: 100%; }
 
-        /* Toast */
         #toast {
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
             background: rgba(0,0,0,0.8); color: white; padding: 12px 25px;
@@ -143,8 +166,6 @@
             color: #f1f1f1; margin-top: 60px; padding: 40px 20px 20px;
             border-top: 5px solid var(--gold); text-align: center;
         }
-        footer h3 { font-family: 'Amiri', serif; font-size: 1.8rem; color: var(--gold); margin-bottom: 10px; }
-        footer .footer-dua { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; margin: 20px 0; }
 
         @keyframes fadeInUp { from { bottom: -50px; opacity: 0; } to { bottom: 20px; opacity: 1; } }
 
@@ -183,6 +204,12 @@
             <span>للتبرع عبر محفظة الكاش (اضغط للنسخ)</span>
             <span class="cash-number">01142148052</span>
         </div>
+    </div>
+
+    <div class="quran-link-card">
+        <h2 style="color: var(--primary); font-family: 'Amiri', serif;">📖 إهداء ثواب القرآن</h2>
+        <p>بإمكانكم الآن قراءة القرآن الكريم كاملاً وتدبر آياته عبر المصحف الإلكتروني، واحتساب الأجر بنية إهداء الثواب لهما.</p>
+        <a href="https://eng-yossef.github.io/Quran" target="_blank" class="quran-btn">اضغط هنا لفتح المصحف الشريف</a>
     </div>
 
     <div class="share-box">
@@ -245,9 +272,6 @@
     <div class="footer-content">
         <h3>🌿 صدقة جارية لا تنقطع</h3>
         <p>هذا الموقع وُضع بنية الصدقة الجارية عن روحَي <strong>عمار</strong> و <strong>محمد</strong></p>
-        <div class="footer-dua">
-            اللهم اجعل هذا العمل خالصًا لوجهك الكريم، وتقبله قبولًا حسنًا، واجعله نورًا في قبريهما.
-        </div>
         <div class="footer-bottom">
             © <span>صدقة جارية</span> — صُممت بحب ودعاء <br> ﴿ وَمَا عِندَ اللَّهِ خَيْرٌ وَأَبْقَى ﴾
         </div>
