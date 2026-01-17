@@ -53,6 +53,29 @@
         .img-circle:hover { transform: scale(1.05); }
         .img-circle img { width: 100%; height: 100%; object-fit: cover; }
 
+        /* قسم التبرع لوصلة المياه الجديد */
+        .donation-section {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px dashed var(--gold);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .donation-section h2 { color: var(--primary); font-family: 'Amiri', serif; margin-bottom: 15px; }
+        .cash-box {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .cash-number { display: block; font-size: 1.5rem; font-weight: bold; color: var(--gold); }
+
         /* رسالة تذكير دائمة */
         .reminder-banner {
             background: var(--primary); color: var(--gold);
@@ -91,7 +114,7 @@
             font-weight: bold; transition: 0.2s;
         }
 
-        /* الأدعية المكثفة */
+        /* الأدعية */
         .dua-list { display: grid; gap: 15px; }
         .dua-card {
             background: white; padding: 25px; border-radius: 15px;
@@ -99,7 +122,7 @@
             font-size: 1.4rem; line-height: 1.7; box-shadow: 0 3px 10px rgba(0,0,0,0.03);
         }
 
-        /* القرآن المطور */
+        /* القرآن */
         .quran-grid { display: grid; gap: 15px; }
         .audio-item {
             background: #fff; padding: 15px; border-radius: 15px;
@@ -107,7 +130,7 @@
         }
         audio { width: 100%; }
 
-        /* رسالة تذكير عائمة */
+        /* Toast */
         #toast {
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
             background: rgba(0,0,0,0.8); color: white; padding: 12px 25px;
@@ -115,56 +138,13 @@
             display: none; animation: fadeInUp 0.5s;
         }
 
-        /* Footer */
-footer {
-    background: linear-gradient(135deg, #0a2b22, var(--primary));
-    color: #f1f1f1;
-    margin-top: 60px;
-    padding: 40px 20px 20px;
-    border-top: 5px solid var(--gold);
-    text-align: center;
-}
-
-footer .footer-content {
-    max-width: 900px;
-    margin: auto;
-    display: grid;
-    gap: 20px;
-}
-
-footer h3 {
-    font-family: 'Amiri', serif;
-    font-size: 1.8rem;
-    color: var(--gold);
-    margin-bottom: 10px;
-}
-
-footer p {
-    font-size: 1rem;
-    line-height: 1.8;
-    opacity: 0.95;
-}
-
-footer .footer-dua {
-    font-family: 'Amiri', serif;
-    font-size: 1.2rem;
-    background: rgba(255,255,255,0.05);
-    padding: 20px;
-    border-radius: 15px;
-    border: 1px solid rgba(197,160,89,0.3);
-}
-
-footer .footer-bottom {
-    margin-top: 25px;
-    font-size: 0.85rem;
-    opacity: 0.7;
-}
-
-footer .footer-bottom span {
-    color: var(--gold);
-    font-weight: bold;
-}
-
+        footer {
+            background: linear-gradient(135deg, #0a2b22, var(--primary));
+            color: #f1f1f1; margin-top: 60px; padding: 40px 20px 20px;
+            border-top: 5px solid var(--gold); text-align: center;
+        }
+        footer h3 { font-family: 'Amiri', serif; font-size: 1.8rem; color: var(--gold); margin-bottom: 10px; }
+        footer .footer-dua { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; margin: 20px 0; }
 
         @keyframes fadeInUp { from { bottom: -50px; opacity: 0; } to { bottom: 20px; opacity: 1; } }
 
@@ -180,7 +160,7 @@ footer .footer-bottom span {
 
 <header>
     <h1>صدقة جارية</h1>
-  <div class="sub-header">اللهم اجعل ذكرهما معموراً بالخير في الأرض، وعملهما نوراً يضيء لهما في السماء</div>
+    <div class="sub-header">اللهم اجعل ذكرهما معموراً بالخير في الأرض، وعملهما نوراً يضيء لهما في السماء</div>
 </header>
 
 <div class="container">
@@ -192,6 +172,16 @@ footer .footer-bottom span {
         <div class="profile">
             <div class="img-circle"><img src="mohammed.jpg" alt="محمد"></div>
             <h3>محمد</h3>
+        </div>
+    </div>
+
+    <div class="donation-section">
+        <h2>💧 صدقة جارية: وصلة مياه</h2>
+        <p>نتشارك معاً لجمع تبرعات لعمل وصلة مياه تكون صدقة جارية على روح فقيدنا <strong>عمار</strong>. نسأل الله أن يتقبلها ويجعلها نوراً له في قبره.</p>
+        <p style="font-style: italic; color: #666;">«أفضل الصدقة سقي الماء»</p>
+        <div class="cash-box" onclick="copyNumber()">
+            <span>للتبرع عبر محفظة الكاش (اضغط للنسخ)</span>
+            <span class="cash-number">01142148052</span>
         </div>
     </div>
 
@@ -212,7 +202,7 @@ footer .footer-bottom span {
             <button class="tap-btn" onclick="inc('c2')">استغفار</button>
         </div>
         <div class="card">
-            <div style="font-size: 0.9rem; height: 40px;">اللهم صلِّ وسلم على نبينا محمد</div>
+            <div style="font-size: 0.9rem; height: 40px;">اللهم صلِّ وسلم على نبينا محمد</div>
             <div class="counter-num" id="c3">0</div>
             <button class="tap-btn" onclick="inc('c3')">صلاة على النبي</button>
         </div>
@@ -236,21 +226,15 @@ footer .footer-bottom span {
     <div class="quran-grid">
         <div class="audio-item">
             <strong>سورة الملك (المنجية من عذاب القبر)</strong>
-            <audio controls preload="none">
-                <source src="https://server10.mp3quran.net/ajm/067.mp3" type="audio/mpeg">
-            </audio>
+            <audio controls preload="none"><source src="https://server10.mp3quran.net/ajm/067.mp3" type="audio/mpeg"></audio>
         </div>
         <div class="audio-item">
             <strong>سورة يس (قلب القرآن)</strong>
-            <audio controls preload="none">
-                <source src="https://server10.mp3quran.net/ajm/036.mp3" type="audio/mpeg">
-            </audio>
+            <audio controls preload="none"><source src="https://server10.mp3quran.net/ajm/036.mp3" type="audio/mpeg"></audio>
         </div>
         <div class="audio-item">
             <strong>آية الكرسي وخواتيم سورة البقرة</strong>
-            <audio controls preload="none">
-                <source src="https://server10.mp3quran.net/ajm/002.mp3" type="audio/mpeg">
-            </audio>
+            <audio controls preload="none"><source src="https://server10.mp3quran.net/ajm/002.mp3" type="audio/mpeg"></audio>
         </div>
     </div>
 </div>
@@ -260,76 +244,46 @@ footer .footer-bottom span {
 <footer>
     <div class="footer-content">
         <h3>🌿 صدقة جارية لا تنقطع</h3>
-
-        <p>
-            هذا الموقع وُضع بنية الصدقة الجارية عن روحَي<br>
-            <strong>عمار</strong> و <strong>محمد</strong><br>
-            نسأل الله أن يجعل كل ذكرٍ ودعاءٍ وقراءة قرآن في ميزان حسناتهما إلى يوم الدين.
-        </p>
-
+        <p>هذا الموقع وُضع بنية الصدقة الجارية عن روحَي <strong>عمار</strong> و <strong>محمد</strong></p>
         <div class="footer-dua">
-            اللهم اجعل هذا العمل خالصًا لوجهك الكريم،  
-            وتقبله قبولًا حسنًا،  
-            واجعله نورًا في قبريهما،  
-            ورفعةً في درجاتهما،  
-            وشفيعًا لهما يوم القيامة 🤲
+            اللهم اجعل هذا العمل خالصًا لوجهك الكريم، وتقبله قبولًا حسنًا، واجعله نورًا في قبريهما.
         </div>
-
         <div class="footer-bottom">
-            © <span>صدقة جارية</span> — صُممت بحب ودعاء  
-            <br>
-            ﴿ وَمَا عِندَ اللَّهِ خَيْرٌ وَأَبْقَى ﴾
+            © <span>صدقة جارية</span> — صُممت بحب ودعاء <br> ﴿ وَمَا عِندَ اللَّهِ خَيْرٌ وَأَبْقَى ﴾
         </div>
     </div>
 </footer>
 
-
 <script>
-    // نظام العدادات
     function inc(id) {
         let count = parseInt(localStorage.getItem(id) || 0);
         count++;
         localStorage.setItem(id, count);
         document.getElementById(id).innerText = count;
-        
-        // اهتزاز واحتفال
-        if (navigator.vibrate) navigator.vibrate(30);
         if (count % 33 === 0) {
             confetti({ particleCount: 80, spread: 70, origin: { y: 0.8 }, colors: ['#c5a059', '#1b4d3e'] });
             showToast("ما شاء الله! تمت 33 تسبيحة، استمر في الأجر.");
         }
     }
 
-    // تذكير عشوائي يظهر كل دقيقة
-    const reminders = [
-        "اذكر الله بنية المغفرة لعمار ومحمد",
-        "هل دعوت لهما بالجنة اليوم؟",
-        "سبحان الله وبحمده.. ثواب عظيم لهما ولك",
-        "صدقتك اليوم قد تكون هي المنجية"
-    ];
-
-    function showRandomReminder() {
-        const text = reminders[Math.floor(Math.random() * reminders.length)];
-        showToast(text);
+    function copyNumber() {
+        navigator.clipboard.writeText("01142148052");
+        showToast("تم نسخ الرقم: 01142148052");
     }
 
+    const reminders = ["اذكر الله بنية المغفرة لعمار ومحمد", "هل دعوت لهما بالجنة اليوم؟", "سبحان الله وبحمده.. ثواب عظيم لهما ولك"];
+    function showRandomReminder() { showToast(reminders[Math.floor(Math.random() * reminders.length)]); }
     function showToast(text) {
         const t = document.getElementById('toast');
         t.innerText = text;
         t.style.display = 'block';
         setTimeout(() => { t.style.display = 'none'; }, 4000);
     }
+    setInterval(showRandomReminder, 60000);
 
-    setInterval(showRandomReminder, 60000); // تذكير كل دقيقة
-
-    // وظيفة المشاركة
     function sharePage() {
         if (navigator.share) {
-            navigator.share({
-                title: 'صدقة جارية لعمار ومحمد',
-                text: 'شاركنا الأجر بالأذكار والدعاء لعمار ومحمد (صدقة جارية لا تتوقف)',
-                url: window.location.href
-            });
+            navigator.share({ title: 'صدقة جارية لعمار ومحمد', url: window.location.href });
         }
     }
 
